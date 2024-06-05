@@ -23,7 +23,7 @@ const Map = () => {
   return (
     <div>
       <MapContainer
-        center={[29.42655264, -95.67255]}
+        center={[39.113014, -105.358887]}
         zoom={6}
         scrollWheelZoom={false}
       >
@@ -31,23 +31,25 @@ const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {fireEventsdata?.map(({ geometries, id, title }, index) => {
-          const allcoordinates = [];
-          const allpoints = geometries.map((metris) => metris.coordinates);
-          allcoordinates.push(allpoints);
+        {fireEventsdata?.map(({ geometries, id, title }) => {
+          const [singlegeometric] = geometries;
+          const localtime = new Date(singlegeometric?.date);
           return (
             <Marker
-              position={geometries[0]?.coordinates}
-              key={index}
+              position={singlegeometric?.coordinates.reverse()}
+              key={id}
               icon={icon}
             >
-              <Popup>
+              <Popup key={id}>
                 <div className="flex flex-col justify-center items-baseline font-roboto pt-2">
                   <h3 className=" text-lg text-slate-700">
                     Event Location Info
                   </h3>
-                  <p className="text-base text-slate-600">ID: {id}</p>
-                  <p className="text-base text-slate-600">TITLE: {title}</p>
+                  <p className="text">ID: {id}</p>
+                  <p className="text">TITLE: {title}</p>
+                  <p className="text">
+                    Last happened on: {localtime.toLocaleString()}
+                  </p>
                 </div>
               </Popup>
             </Marker>
