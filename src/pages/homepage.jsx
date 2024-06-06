@@ -12,7 +12,7 @@ const Homepage = () => {
         <h1 className="text-5xl text-white font-roboto text-center max-md:text-3xl">
           Welcome to BlazeWatch
         </h1>
-        <h6 className="text-2xl text-white  px-32 text-center max-md:px-2 gont-roboto max-md:text-xl">
+        <h6 className="text-2xl text-white  px-32 text-center max-md:px-2 gont-roboto max-md:text-xl max-lg:text-justify">
           Wildfires can spread rapidly and cause extensive damage, with around
           {Fact} occurring annually worldwide. Despite their danger, they play a
           vital role in clearing dead material and promoting new growth. Stay
