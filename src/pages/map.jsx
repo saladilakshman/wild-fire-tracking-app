@@ -27,7 +27,7 @@ const Map = () => {
   return (
     <div className="relative">
       {loading ? (
-        <div className="inset-0 h-screen w-full backdrop-sepia-10 bg-slate-300   absolute">
+        <div className="inset-0 h-screen w-full backdrop-sepia-10 bg-gray-200   absolute">
           <div
             role="status"
             className="flex flex-col justify-center items-center h-screen"
